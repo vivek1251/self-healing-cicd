@@ -1,0 +1,35 @@
+name: Self-Healing CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: |
+          docker build -t myapp:latest ./app
+
+      - name: Run tests
+        run: |
+          docker run --rm myapp:latest python -c "import app; print('App imports OK')"
+
+      - name: Health check simulation
+        run: |
+          docker run -d --name myapp -p 5000:5000 myapp:latest
+          sleep 5
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:5000/health)
+          echo "Health check status: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "Health check FAILED"
+            docker logs myapp
+            exit 1
+          fi
+          echo "Health check PASSED"
+          docker stop myapp
