@@ -21,15 +21,17 @@ jobs:
       - name: Push to DockerHub
         run: docker push vivekbommalla1251/self-healing-app:latest
 
+      - name: Setup SSH Key
+        run: |
+          echo "${{ secrets.EC2_KEY }}" | base64 -d > /tmp/deploy_key.pem
+          chmod 600 /tmp/deploy_key.pem
+
       - name: Deploy to EC2
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_KEY }}
-          script: |
-            docker pull vivekbommalla1251/self-healing-app:latest
-            docker stop myapp || true
-            docker rm myapp || true
-            docker run -d --name myapp -p 5000:5000 vivekbommalla1251/self-healing-app:latest
-            echo "✅ Deployed successfully!"
+        run: |
+          ssh -i /tmp/deploy_key.pem -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} "
+            docker pull vivekbommalla1251/self-healing-app:latest &&
+            docker stop myapp || true &&
+            docker rm myapp || true &&
+            docker run -d --name myapp -p 5000:5000 vivekbommalla1251/self-healing-app:latest &&
+            echo 'Deployed successfully!'
+          "
