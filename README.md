@@ -2,7 +2,7 @@
 
 A production-grade DevOps project that automatically detects failures, diagnoses issues using **Gemini AI**, and self-restarts — with real-time **Slack alerts**.
 
-**Live App:** http://44.211.185.25:5000/health
+**Live App:** http://<your-ec2-ip>:5000
 
 ---
 
