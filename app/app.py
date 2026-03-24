@@ -92,6 +92,12 @@ def get_alerts():
     unresolved_only = request.args.get("unresolved") == "true"
     filtered = [a for a in alerts if not a["resolved"]] if unresolved_only else alerts
     return jsonify({"alerts": filtered, "total": len(filtered)})
-
+@app.route("/version")
+def version():
+    return jsonify({
+        "version": "1.0.0",
+        "build": "stable",
+        "author": "vivek1251"
+    })
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
