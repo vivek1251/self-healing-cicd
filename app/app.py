@@ -36,7 +36,7 @@ def status():
         "uptime_seconds": uptime,
         "version": "1.0",
         "environment": os.environ.get("APP_ENV", "production"),
-        "timestamp": datetime.datetime.utcnow().isoformat() + "Z"
+        "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
     })
 
 @app.route("/metrics")
@@ -82,7 +82,7 @@ def create_deployment():
         "status": "success",
         "branch": branch,
         "triggered_by": body.get("triggered_by", "api"),
-        "timestamp": datetime.datetime.utcnow().isoformat() + "Z"
+        "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
     }
     deployments.append(new)
     return jsonify(new), 201
