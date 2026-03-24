@@ -29,7 +29,7 @@ def get_container_logs():
 def gemini_diagnose(logs):
     try:
         prompt = f"You are a DevOps AI. Analyze these Docker logs and explain in 2-3 sentences what went wrong:\n\n{logs}"
-        response = client.models.generate_content(model="model="model="gemini-2.0-flash", contents=prompt)
+        response = client.models.generate_content(model="gemini-2.0-flash", contents=prompt)
         return response.text
     except Exception as e:
         return f"Gemini diagnosis failed: {e}"
