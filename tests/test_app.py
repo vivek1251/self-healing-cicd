@@ -21,7 +21,7 @@ def test_home_returns_200(client):
 def test_home_returns_message(client):
     response = client.get('/')
     data = response.get_json()
-    assert data['message'] == 'App is running'
+    assert data['message'] == 'Self-Healing CI/CD App'
     assert data['version'] == '1.0'
 
 # Test 3: health endpoint returns healthy by default
