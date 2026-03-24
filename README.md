@@ -30,7 +30,24 @@ Most CI/CD pipelines just deploy code. This one **heals itself**. When the app c
 This is what **Site Reliability Engineering (SRE)** looks like in practice.
 
 ---
+## 🎬 Demo
 
+### Monitor starting & app healthy
+![Demo 1](demos/demo1.gif)
+
+### Crash detected — self-healing triggered
+![Demo 2](demos/demo2.gif)
+
+### AI diagnosis + auto-restart
+![Demo 3](demos/demo3.gif)
+
+### Slack alerts firing in real time
+![Demo 4](demos/demo4.gif)
+
+### GitHub Actions pipeline running
+![Demo 5](demos/demo5.gif)
+
+---
 ## 🏗️ System Architecture
 
 ```
