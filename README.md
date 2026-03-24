@@ -337,11 +337,19 @@ And check Slack for the AI-generated diagnosis alert.
 
 ---
 
-## 🌐 API Reference
+## 🌐 API Endpoints
 
-| Endpoint | Method | Response | Description |
-|---|---|---|---|
-| `/health` | `GET` | `{"status": "healthy"}` | Health check — used by monitor |
+| Endpoint | Method | Response |
+|----------|--------|----------|
+| `/` | GET | `{"message": "Self-Healing CI/CD App", "version": "1.0"}` |
+| `/health` | GET | `{"status": "healthy"}` |
+| `/status` | GET | `{"status": "running", "uptime_seconds": ..., "version": "1.0"}` |
+| `/metrics` | GET | Deployment stats, healing counts, alert summary |
+| `/version` | GET | `{"version": "1.0.0", "build": "stable", "author": "vivek1251"}` |
+| `/deployments` | GET | List of all deployments |
+| `/deployments/<id>` | GET | Single deployment by ID |
+| `/deployments` | POST | Create a new deployment record |
+| `/alerts` | GET | All alerts (add `?unresolved=true` for open only) |
 
 **Live endpoint:** http://YOUR_EC2_IP
 
