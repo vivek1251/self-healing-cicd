@@ -49,6 +49,6 @@ jobs:
             docker pull vivekbommalla1251/self-healing-app:latest &&
             docker stop myapp || true &&
             docker rm myapp || true &&
-            docker run -d --name myapp -p 5000:5000 vivekbommalla1251/self-healing-app:latest &&
+            docker run -d --name myapp -p 5000:5000 --restart always vivekbommalla1251/self-healing-app:latest &&
             echo 'Deployed successfully!'
           "
