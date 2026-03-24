@@ -343,7 +343,7 @@ And check Slack for the AI-generated diagnosis alert.
 |---|---|---|---|
 | `/health` | `GET` | `{"status": "healthy"}` | Health check — used by monitor |
 
-**Live endpoint:** http://44.211.185.25:5000/health
+**Live endpoint:** http://YOUR_EC2_IP
 
 ---
 
@@ -366,7 +366,7 @@ The app runs on an AWS EC2 instance, deployed automatically by GitHub Actions on
 
 ```bash
 # SSH into EC2
-ssh -i your-key.pem ubuntu@44.211.185.25
+ssh -i your-key.pem ubuntu@YOUR_EC2_IP
 
 # View running container
 docker ps
