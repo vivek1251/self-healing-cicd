@@ -12,7 +12,7 @@
 
 **A production-grade, fully automated DevOps system that detects application failures, uses Gemini AI to diagnose root causes from Docker logs, auto-restarts containers, and sends real-time Slack alerts — all without human intervention.**
 
-[🌐 Live Demo](http://44.211.185.25:5000/health) • [📦 DockerHub](https://hub.docker.com/u/vivekbommalla1251) • [⚙️ GitHub Actions](https://github.com/vivek1251/self-healing-cicd/actions)
+[🌐 Live Demo](http://98.92.62.152:5000/health) • [📦 DockerHub](https://hub.docker.com/u/vivekbommalla1251) • [⚙️ GitHub Actions](https://github.com/vivek1251/self-healing-cicd/actions)
 
 </div>
 
