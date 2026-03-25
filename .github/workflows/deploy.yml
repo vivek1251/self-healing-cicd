@@ -3,6 +3,8 @@ name: Self-Healing CI/CD Pipeline
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   test:
