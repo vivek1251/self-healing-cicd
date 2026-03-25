@@ -1,5 +1,7 @@
 # 🤖 Self-Healing CI/CD Pipeline with Gemini AI
 
+![Coverage](https://codecov.io/gh/vivek1251/self-healing-cicd/branch/main/graph/badge.svg?token=cb61de65-f3a1-4edc-adeb-d3d0c3bec7be)
+
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
